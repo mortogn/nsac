@@ -40,6 +40,7 @@ export const aliceImage = new Image({
         "finger-up",
         "chin",
         "jogging-hand",
+        "forehead-waist",
       ],
     ],
 
