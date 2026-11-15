@@ -25,6 +25,7 @@ export const aliceImage = new Image({
         "nervous-laugh",
         "satisfied",
         "tired",
+        "laughing",
       ],
       [
         "waist",
@@ -41,6 +42,7 @@ export const aliceImage = new Image({
         "chin",
         "jogging-hand",
         "forehead-waist",
+        "mouth",
       ],
     ],
 

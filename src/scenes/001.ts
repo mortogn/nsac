@@ -28,8 +28,6 @@ const createOpeningScene = (playerName: string) => {
   const schoolScene = createSchoolScene(playerName);
 
   scene.action([
-    scene.jumpTo(schoolScene),
-
     scene.setBackground(images[0]),
     Narrator.say("A young person was watching a video late at night."),
 

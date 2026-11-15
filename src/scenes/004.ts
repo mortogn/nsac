@@ -3,6 +3,7 @@ import { getMcCharacter, mcImage } from "../characters/mc";
 import { getAssetURL } from "../utils/get-asset-url";
 import { alice, aliceImage } from "../characters/alice";
 import { steve, steveImage } from "../characters/steve";
+import createMaxPhoneScene from "./005";
 
 const backgroundImages = {
   "001": getAssetURL("/scenes/004/bg_001.webp"),
@@ -21,6 +22,8 @@ const createSteveScene = (playerName: string) => {
   const scene = new Scene("steve_scene");
 
   const mc = getMcCharacter(String(playerName));
+
+  const maxPhoneScene = createMaxPhoneScene(playerName);
 
   scene.action([
     scene.setBackground(images[0]),
@@ -213,6 +216,8 @@ const createSteveScene = (playerName: string) => {
       new Dissolve({ duration: 300 }),
     ),
     mc.say("We will try to answer correctly."),
+
+    scene.jumpTo(maxPhoneScene),
   ]);
 
   return scene;

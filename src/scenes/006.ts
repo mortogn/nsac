@@ -71,52 +71,97 @@ const createMaxMuseumScene = (playerName: string) => {
       "We want to know how these rovers landed on mars, isn’t it really difficult?",
     ),
 
-    maxImage.char(["talking", "index-up"]),
+    maxImage.char(["talking", "7"]),
     max.say("Yes, we even call it “Seven minutes of terror”."),
 
     aliceImage.hide(),
     mcImage.show(),
     mc.say("It must be really difficult then."),
+
+    maxImage.char(["explaining", "chest"]),
     max.say(
       "Yes. To land a rover successfully, specially for Spirit and opportunity we used Airbag cushions and Retro-rockets.",
     ),
     mcImage.hide(),
+    aliceImage.char(["confused", "shrug"]).show(),
     alice.say("How does it work?"),
+
+    maxImage.char(["talking", "index-up"]),
     max.say(
       "So these rovers were hurtling through the Martian atmosphere at thousands of miles per hour.",
     ),
+
+    maxImage.char(["explaining", "chest"]),
     max.say(
       "A heat shield took the absolute worst of the heat and slowed it down by over 90%, and then a massive parachute popped out.",
     ),
+
+    aliceImage.hide(),
+    mcImage.char(["confused", "hand-up"]).show(),
     mc.say("A parachute? A parachute alone slowed it down??"),
+
+    maxImage.char(["talking", "index-up"]),
     max.say(
       "Good Question! It didn’t alone stop it from crashing onto mars surface.",
     ),
+
+    maxImage.char(["talking", "arms-crossed"]),
     max.say(
       "Right before it hit the ground, retro-rockets fired to kill the remaining speed.",
     ),
     max.say(
       "Inflated these massive airbag balls all around the lander, and dropped it from a few meters up.",
     ),
+
+    mcImage.hide(),
+
+    aliceImage.char(["defeated", "palm-on-face"]).show(),
     alice.say("Oh no! Little buddy."),
+
+    maxImage.char(["laughing", "waist-forehead"]),
     max.say("Haha, spirit bounced 28 times."),
-    mc.say("I’m dizzy thinking about it.[dramatic]"),
+
+    aliceImage.hide(),
+    mcImage.char(["dizzy", "head"]).show(),
+    mc.say("I’m dizzy thinking about it."),
+
+    mcImage.hide(),
+    aliceImage.char(["laughing", "mouth"]).show(),
+    maxImage.char(["laughing", "waist-forehead"]),
     Narrator.say("Everyone laughs"),
+
+    aliceImage.char(["neutral", "arms-crossed"]),
+    maxImage.char(["talking", "index-up"]),
     max.say(
       "Spirit landed inside Gusev crater and Opportunity landed inside an impact crater known as Eagle.",
     ),
+    maxImage.char(["talking", "up"]),
     max.say(
       "Spirit and Opportunity landed in the same way but on the opposite side of mars.",
     ),
+
+    mcImage.hide(),
+
+    aliceImage.char(["thinking", "chin"]).show(),
     alice.say("Understood!"),
+
+    aliceImage.hide(),
+    mcImage.char(["smile", "behind-back"]).show(),
     mc.say(
       "Thank you so much Mr.Max. Now we know how these two landed on Mars.",
     ),
+
+    maxImage.char(["talking", "arms-crossed"]),
     max.say("You’re welcome."),
+
+    maxImage.char(["talking", "index-up"]),
     max.say(
       "If you can answer my question I’ll give you some photocards, do you want it?",
     ),
+
+    mcImage.char(["proud", "fist-up"]),
     mc.say("Yess!"),
+    aliceImage.char(["proud", "fist-up"]).show(),
     alice.say("Yess!"),
   ]);
 

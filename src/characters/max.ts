@@ -6,7 +6,15 @@ export const max = new Character("Max");
 export const maxImage = new Image({
   src: {
     groups: [
-      ["disappointed", "laughing", "listening", "proud", "talking", "thinking"],
+      [
+        "disappointed",
+        "laughing",
+        "listening",
+        "proud",
+        "talking",
+        "thinking",
+        "explaining",
+      ],
       [
         "chin-chest",
         "waist-forehead",
@@ -16,6 +24,8 @@ export const maxImage = new Image({
         "index-up",
         "up",
         "chin",
+        "7",
+        "chest",
       ],
     ],
     defaults: ["talking", "index-up"],

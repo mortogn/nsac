@@ -1,4 +1,4 @@
-import { Dissolve, Scene } from "narraleaf-react";
+import { Scene } from "narraleaf-react";
 import { getMcCharacter, mcImage } from "../characters/mc";
 import { max, maxImage } from "../characters/max";
 import { getAssetURL } from "../utils/get-asset-url";

@@ -4,6 +4,7 @@ import { getAssetURL } from "../utils/get-asset-url";
 import { alice, aliceImage } from "../characters/alice";
 import { sfx } from "../sounds/sfx";
 import { valerie, valerieImage } from "../characters/valerie";
+import createSteveScene from "./004";
 
 const backgroundImages = {
   "001": getAssetURL("/scenes/003/bg_001.webp"),
@@ -24,6 +25,8 @@ const createValerieVisitScene = (playerName: string) => {
   const scene = new Scene("valerie_visit");
 
   const mc = getMcCharacter(String(playerName));
+
+  const steveScene = createSteveScene(playerName);
 
   scene.action([
     scene.setBackground(getAssetURL(images[0])),
@@ -261,6 +264,8 @@ const createValerieVisitScene = (playerName: string) => {
     mcImage.char(["proud", "fist-up"], new Dissolve({ duration: 300 })),
     aliceImage.char(["grin", "fist-up"]).show().pos({ xalign: 0.6 }),
     mc.say("We are ready!"),
+
+    scene.jumpTo(steveScene),
   ]);
 
   return scene;
