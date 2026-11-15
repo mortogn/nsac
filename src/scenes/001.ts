@@ -35,6 +35,7 @@ const createOpeningScene = (playerName: string) => {
 
   scene.action([
     scene.setBackground(images[0]),
+
     Narrator.say("A young person was watching a video late at night.", {
       voiceId: "narrator/001",
     }),
@@ -45,6 +46,12 @@ const createOpeningScene = (playerName: string) => {
     }),
 
     scene.setBackground(images[1]),
+    scene.setBackgroundMusic(
+      Sound.bgm({
+        src: getAssetURL("/voices/scene_001/nasa_001.mpeg"),
+        volume: 0.05,
+      }),
+    ),
     Narrator.say("“A tale of two rovers” was the title..", {
       voiceId: "narrator/003",
     }),

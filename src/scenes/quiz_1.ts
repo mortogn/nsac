@@ -54,7 +54,9 @@ export const createQuizOneQuestionOneScene = (
     )
       .choose("Blueberry", [
         valerieImage.char(["proud", "clap"]).show(),
-        valerie.say("Correct! Well done!"),
+        valerie.say("Correct! Well done!", {
+          voiceId: "valerie/q_correct",
+        }),
         Control.all([
           mcImage.char(["proud", "fist-up"], new Dissolve({ duration: 300 })),
           aliceImage.char(
@@ -120,7 +122,9 @@ export const createQuizOneQuestionTwo = (
       .choose("Opportunity", [...rejectActions])
       .choose("Spirit", [
         valerieImage.char(["proud", "clap"]).show(),
-        valerie.say("Correct! Well done!"),
+        valerie.say("Correct! Well done!", {
+          voiceId: "valerie/q_correct",
+        }),
         Control.all([
           mcImage.char(["proud", "fist-up"], new Dissolve({ duration: 300 })),
           aliceImage.char(

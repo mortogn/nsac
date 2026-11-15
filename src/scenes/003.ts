@@ -1,4 +1,12 @@
-import { Control, Dissolve, FadeIn, Menu, Scene, Sound } from "narraleaf-react";
+import {
+  Control,
+  Dissolve,
+  FadeIn,
+  Menu,
+  Narrator,
+  Scene,
+  Sound,
+} from "narraleaf-react";
 import { getMcCharacter, mcImage } from "../characters/mc";
 import { getAssetURL } from "../utils/get-asset-url";
 import { alice, aliceImage } from "../characters/alice";
@@ -169,12 +177,15 @@ const createValerieVisitScene = (playerName: string) => {
     mcImage.hide(),
     aliceImage.char(["standing", "sad", "neutral-hand"]).show(),
 
-    alice.say("This is so sad!", { voiceId: "alice/002" }),
+    alice.say("This is so sad!", { voiceId: "alice/003" }),
 
     aliceImage.hide(),
 
-    mcImage.show(),
-    mc.say("What about Opportunity?", { voiceId: "mc/female/006" }),
+    mcImage.char(["upset", "neutral"]).show(),
+    mc.say("It is", { voiceId: "mc/female/006" }),
+
+    mcImage.char(["confused", "hand-up"]).show(),
+    mc.say("What about Opportunity?", { voiceId: "mc/female/007" }),
 
     valerieImage.char(["proud", "waist"], new Dissolve({ duration: 300 })),
     valerie.say(
@@ -190,7 +201,7 @@ const createValerieVisitScene = (playerName: string) => {
       ["standing", "excited", "hands-clasped"],
       new Dissolve({ duration: 300 }),
     ),
-    mc.say("OMG! Strongest one indeed.", { voiceId: "mc/female/007" }),
+    mc.say("OMG! Strongest one indeed.", { voiceId: "mc/female/008" }),
 
     valerieImage.char(
       ["smile", "neutral-hand"],
@@ -202,7 +213,7 @@ const createValerieVisitScene = (playerName: string) => {
 
     mcImage.hide(),
     aliceImage.char(["standing", "excited", "hands-clasped"]).show(),
-    alice.say("Yess,Tell us more", { voiceId: "alice/003" }),
+    alice.say("Yess,Tell us more", { voiceId: "alice/004" }),
 
     valerieImage.char(["talking", "finger-up"]),
     valerie.say(
@@ -212,7 +223,7 @@ const createValerieVisitScene = (playerName: string) => {
 
     aliceImage.hide(),
     mcImage.char(["thinking", "chin"]).show(),
-    mc.say("Do you mean water on mars?", { voiceId: "mc/female/008" }),
+    mc.say("Do you mean water on mars?", { voiceId: "mc/female/010" }),
 
     valerie.say(
       "Yes exactly, you will be more shocked to know they did find the signs!",
@@ -223,7 +234,7 @@ const createValerieVisitScene = (playerName: string) => {
       ["standing", "excited", "hands-clasped"],
       new Dissolve({ duration: 300 }),
     ),
-    mc.say("For real???", { voiceId: "mc/female/009" }),
+    mc.say("For real???", { voiceId: "mc/female/011" }),
 
     valerie.say(
       "Yes! By studying the rock record, Spirit and Opportunity confirmed that water was long standing on the surface of Mars long ago.",
@@ -237,7 +248,7 @@ const createValerieVisitScene = (playerName: string) => {
 
     mcImage.char(["happy", "fist"], new Dissolve({ duration: 300 })),
     mc.say("This is huge!!! Water sign on Mars, Unbelievable!", {
-      voiceId: "mc/female/010",
+      voiceId: "mc/female/012",
     }),
 
     valerieImage.char(["thinking", "chin"], new Dissolve({ duration: 300 })),
@@ -249,7 +260,7 @@ const createValerieVisitScene = (playerName: string) => {
     mcImage.hide(),
     aliceImage.char(["excited", "hands-clasped"]).show(),
     alice.say("BLUEBERRIES MENTIONED??? MY FAVOURITE BERRIESS!", {
-      voiceId: "alice/004",
+      voiceId: "alice/006",
     }),
 
     valerieImage.hide(),
@@ -258,61 +269,56 @@ const createValerieVisitScene = (playerName: string) => {
       .scaleX(0.9)
       .pos({ xalign: 0.8 }),
     mcImage.char(["attentive", "arms-crossed"]).show(),
-    mc.say("Calmdown!! You can’t eat them!!", { voiceId: "mc/female/011" }),
+    mc.say("Calmdown!! You can’t eat them!!", { voiceId: "mc/female/013" }),
 
     aliceImage.hide(),
     aliceImage.pos({ xalign: 0.2 }).scaleX(-0.9),
     valerieImage.show(),
     valerie.say(
-      "Not only blueberries, do you wanna know something interesting?",
+      "Not only blueberries, do you wanna know something interesting? Do you know the proverb “Blessing in disguise”? This is exactly what happened to Spirit.",
       { voiceId: "valerie/017" },
     ),
 
     mcImage.char(["smile", "behind-back"]),
 
     valerie.say(
-      `Do you know the proverb “Blessing in disguise”? This is exactly what happened to Spirit.`,
+      "Spirit had a broken wheel,Dragging the stuck wheel naturally dug trenches into the Martian dirt.",
       { voiceId: "valerie/018" },
     ),
 
     valerie.say(
-      "Spirit had a broken wheel,Dragging the stuck wheel naturally dug trenches into the Martian dirt.",
+      "These trenches uncovered bright patches containing roughly 90% silica content.",
       { voiceId: "valerie/019" },
     ),
 
     valerie.say(
-      "These trenches uncovered bright patches containing roughly 90% silica content.",
-      { voiceId: "valerie/020" },
-    ),
-
-    valerie.say(
       "Since high silica level requires high water activity, this is how spirit turned up some best evidence of water on mars !",
-      { voiceId: "valerie/021" },
+      { voiceId: "valerie/020" },
     ),
 
     mcImage.hide(),
     aliceImage.char(["proud", "fist-up"]).show(),
     alice.say("This is why we should never lose hope in some inconvenience!", {
-      voiceId: "alice/005",
+      voiceId: "alice/007",
     }),
     aliceImage.hide(),
 
     mcImage.show(),
     mc.say(
       "Yes exactly!Thank you so much,mam for your precious time. We learned a lot about these two rovers,I was in goosebumps all the time! ",
-      { voiceId: "mc/female/012" },
+      { voiceId: "mc/female/014" },
     ),
 
     mcImage.char(["excited", "hands-clasped"], new Dissolve({ duration: 300 })),
     mc.say(
       "They were not only just rovers, they were our companions! They undercovered so many secrets that Mars had been holding!",
-      { voiceId: "mc/female/013" },
+      { voiceId: "mc/female/015" },
     ),
 
     valerieImage.char(["grin", "behind-back"], new Dissolve({ duration: 300 })),
     valerie.say(
       "Yes! It’s my pleasure, and I’m really happy you showed interest in this field,don’t hesitate to come to me whenever you feel curious,okay? ",
-      { voiceId: "valerie/022" },
+      { voiceId: "valerie/021" },
     ),
 
     valerieImage.char(
@@ -321,15 +327,15 @@ const createValerieVisitScene = (playerName: string) => {
     ),
     valerie.say(
       "If you can answer my question, I’ll ask my friend Steve to tell you about the instruments used in these rovers.",
-      { voiceId: "valerie/023" },
+      { voiceId: "valerie/022" },
     ),
 
-    valerie.say("He is a mechanical Engineer. ", { voiceId: "valerie/024" }),
+    valerie.say("He is a mechanical Engineer. ", { voiceId: "valerie/023" }),
 
     valerieImage.hide(),
     mcImage.char(["proud", "fist-up"], new Dissolve({ duration: 300 })),
     aliceImage.char(["grin", "fist-up"]).show().pos({ xalign: 0.6 }),
-    mc.say("We are ready!", { voiceId: "mc/female/014" }),
+    mc.say("We are ready!", { voiceId: "mc/female/016" }),
 
     aliceImage.pos({ xalign: 0.35 }),
 

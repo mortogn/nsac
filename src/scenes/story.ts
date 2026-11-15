@@ -1,6 +1,5 @@
 import { Scene, Story } from "narraleaf-react";
 import createOpeningScene from "./001";
-import createEndingScene from "./007";
 
 export const createStory = (playerName: string) => {
   const story = new Story("NSAC Visual Novel");
