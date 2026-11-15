@@ -26,6 +26,7 @@ export const mcImage = new Image({
         "talking",
         "thinking",
         "upset",
+        "grin",
       ],
       [
         "jogging-hand",
@@ -40,6 +41,7 @@ export const mcImage = new Image({
         "fist-up",
         "waist",
         "behind-back",
+        "chest-waist",
         "finger-up",
         "phone",
         "chin",

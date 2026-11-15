@@ -39,6 +39,8 @@ const createSteveScene = (playerName: string) => {
 
     mc.say("Alice, look at the person sitting at that bench."),
 
+    Control.sleep(200),
+
     mcImage.hide(),
     aliceImage.hide(),
     scene.setBackground(images[1]),
@@ -56,6 +58,8 @@ const createSteveScene = (playerName: string) => {
 
     mcImage.hide(),
     aliceImage.hide(),
+
+    Control.sleep(200),
 
     scene.setBackground(images[2]),
     Control.waitForClick(),
@@ -76,6 +80,8 @@ const createSteveScene = (playerName: string) => {
     steve.say("But I’ll only tell you if you two join me in jogging. Deal?"),
 
     mc.say("Deal!"),
+
+    Control.sleep(200),
 
     mcImage.hide(),
     steveImage.hide(),
