@@ -26,7 +26,7 @@ export const createQuizOneQuestionOneScene = (
 
   scene.action([
     scene.setBackground(bg),
-    aliceImage.pos({ xalign: 0.3 }),
+    aliceImage.pos({ xalign: 0.35 }),
     valerieImage.char(["talking", "finger-up"]).show(),
     aliceImage.char(["neutral", "arms-crossed"]).show(),
     mcImage.char(["attentive", "arms-crossed"]).show(),
@@ -81,7 +81,7 @@ export const createQuizOneQuestionTwo = (
 
   scene.action([
     scene.setBackground(bg),
-    aliceImage.pos({ xalign: 0.3 }),
+    aliceImage.pos({ xalign: 0.35 }),
     valerieImage.char(["talking", "finger-up"]).show(),
     aliceImage.char(["neutral", "arms-crossed"]).show(),
     mcImage.char(["attentive", "arms-crossed"]).show(),

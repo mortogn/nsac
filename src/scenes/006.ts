@@ -3,6 +3,7 @@ import { getMcCharacter, mcImage } from "../characters/mc";
 import { alice, aliceImage } from "../characters/alice";
 import { max, maxImage } from "../characters/max";
 import { getAssetURL } from "../utils/get-asset-url";
+import { createQuizThreeQuestionOneScene } from "./quiz_3";
 
 const backgroudImages = [
   getAssetURL("/scenes/006/bg_001.webp"),
@@ -19,6 +20,13 @@ const createMaxMuseumScene = (playerName: string) => {
   const scene = new Scene("max_museum");
 
   const mc = getMcCharacter(playerName);
+  const quizCompleteScene = new Scene("max_museum_end");
+  quizCompleteScene.action([]);
+  const quizScene = createQuizThreeQuestionOneScene(
+    playerName,
+    backgroudImages[1],
+    quizCompleteScene,
+  );
 
   scene.action([
     scene.setBackground(images[0]),
@@ -163,6 +171,8 @@ const createMaxMuseumScene = (playerName: string) => {
     mc.say("Yess!"),
     aliceImage.char(["proud", "fist-up"]).show(),
     alice.say("Yess!"),
+
+    scene.jumpTo(quizScene),
   ]);
 
   return scene;

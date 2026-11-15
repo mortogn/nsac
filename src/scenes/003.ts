@@ -28,7 +28,7 @@ const createValerieVisitScene = (playerName: string) => {
   const mc = getMcCharacter(String(playerName));
 
   const steveScene = createSteveScene(playerName);
-  const questionOneScene = createQuizOneQuestionOneScene(
+  const quizScene = createQuizOneQuestionOneScene(
     playerName,
     backgroundImages["003"],
     steveScene,
@@ -273,7 +273,7 @@ const createValerieVisitScene = (playerName: string) => {
 
     aliceImage.pos({ xalign: 0.35 }),
 
-    scene.jumpTo(questionOneScene),
+    scene.jumpTo(quizScene),
   ]);
 
   return scene;

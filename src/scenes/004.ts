@@ -4,6 +4,7 @@ import { getAssetURL } from "../utils/get-asset-url";
 import { alice, aliceImage } from "../characters/alice";
 import { steve, steveImage } from "../characters/steve";
 import createMaxPhoneScene from "./005";
+import { createQuizTwoQuestionOneScene } from "./quiz_2";
 
 const backgroundImages = {
   "001": getAssetURL("/scenes/004/bg_001.webp"),
@@ -24,6 +25,11 @@ const createSteveScene = (playerName: string) => {
   const mc = getMcCharacter(String(playerName));
 
   const maxPhoneScene = createMaxPhoneScene(playerName);
+  const quizScene = createQuizTwoQuestionOneScene(
+    playerName,
+    backgroundImages["003"],
+    maxPhoneScene,
+  );
 
   scene.action([
     scene.setBackground(images[0]),
@@ -217,7 +223,7 @@ const createSteveScene = (playerName: string) => {
     ),
     mc.say("We will try to answer correctly."),
 
-    scene.jumpTo(maxPhoneScene),
+    scene.jumpTo(quizScene),
   ]);
 
   return scene;
