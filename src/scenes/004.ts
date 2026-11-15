@@ -1,4 +1,4 @@
-import { Control, Dissolve, Image, Narrator, Scene } from "narraleaf-react";
+import { Control, Dissolve, Narrator, Scene, Sound } from "narraleaf-react";
 import { getMcCharacter, mcImage } from "../characters/mc";
 import { getAssetURL } from "../utils/get-asset-url";
 import { alice, aliceImage } from "../characters/alice";
@@ -20,7 +20,13 @@ const images = [
 ];
 
 const createSteveScene = (playerName: string) => {
-  const scene = new Scene("steve_scene");
+  const scene = new Scene("steve_scene", {
+    voices: (id) =>
+      Sound.voice({
+        src: getAssetURL(`/voices/scene_004/${id}.mp3`),
+        volume: 0.5,
+      }),
+  });
 
   const mc = getMcCharacter(String(playerName));
 
@@ -39,31 +45,35 @@ const createSteveScene = (playerName: string) => {
     aliceImage.pos({ xalign: 0.8 }).scaleX(0.9),
     aliceImage.char(["talking", "finger-up"]).show(),
 
-    alice.say("Valerie told me that she talked to Steve."),
+    alice.say("Valerie told me that she talked to Steve.", {
+      voiceId: "alice/park_001",
+    }),
 
     mcImage.char(["smile", "behind-back"]).show(),
-    mc.say("She is so nice"),
+    mc.say("She is so nice", { voiceId: "mc/female/park_001" }),
 
-    alice.say("She said Steve will wait for us near the entrance."),
+    alice.say("She said Steve will wait for us near the entrance.", {
+      voiceId: "alice/park_002",
+    }),
 
-    mc.say("Alice, look at the person sitting at that bench."),
-
-    Control.sleep(200),
+    mc.say("Alice, look at the person sitting at that bench.", {
+      voiceId: "mc/female/park_002",
+    }),
 
     mcImage.hide(),
     aliceImage.hide(),
     scene.setBackground(images[1]),
-    Control.waitForClick(),
+    Narrator.say("A person sitting at the bench looking at his phone"),
 
     scene.setBackground(backgroundImages["001"]),
 
     mcImage.show(),
 
     aliceImage.char(["thinking", "chin"]).show(),
-    alice.say("I think he is the one."),
+    alice.say("I think he is the one.", { voiceId: "alice/park_003" }),
 
     mcImage.char(["happy", "fist"]).show(),
-    mc.say("Let’s go talk to him."),
+    mc.say("Let’s go talk to him.", { voiceId: "mc/female/park_003" }),
 
     mcImage.hide(),
     aliceImage.hide(),
@@ -74,21 +84,27 @@ const createSteveScene = (playerName: string) => {
     Control.waitForClick(),
 
     steveImage.char(["talking", "pocket"]).show(),
-    steve.say("Are you two perhaps MC and Alice,right?"),
+    steve.say("Are you two perhaps MC and Alice,right?", {
+      voiceId: "steve/001",
+    }),
 
     aliceImage.scaleX(-0.9),
 
     mcImage.char(["happy", "neutral-hand"]).show(),
     mc.say(
       "Yes, Miss Valerie told us about you. We would like to know about the parts and instruments used in rovers specially in Spirit and Opportunity.",
+      { voiceId: "mc/female/001" },
     ),
 
     steve.say(
       "Sure! I’ll tell you the basic rover anatomy so you can get an idea.",
+      { voiceId: "steve/002" },
     ),
-    steve.say("But I’ll only tell you if you two join me in jogging. Deal?"),
+    steve.say("But I’ll only tell you if you two join me in jogging. Deal?", {
+      voiceId: "steve/003",
+    }),
 
-    mc.say("Deal!"),
+    mc.say("Deal!", { voiceId: "mc/female/002" }),
 
     Control.sleep(200),
 
@@ -103,6 +119,7 @@ const createSteveScene = (playerName: string) => {
     steveImage.char(["jogging", "smile", "index-up"]).show(),
     steve.say(
       "So, first tell me What do you call someone with no body and no nose ?",
+      { voiceId: "steve/004" },
     ),
     steveImage.hide(),
 
@@ -114,7 +131,7 @@ const createSteveScene = (playerName: string) => {
     aliceImage.hide(),
 
     steveImage.char(["jogging", "happy", "clapping"]).show(),
-    steve.say("Nobody knows"),
+    steve.say("Nobody knows", { voiceId: "steve/005" }),
     steveImage.hide(),
 
     mcImage.char(["jogging", "nervous-laugh", "jogging-hand"]).show(),
@@ -127,12 +144,15 @@ const createSteveScene = (playerName: string) => {
     steveImage.char(["jogging", "smile", "index-up"]).show(),
     steve.say(
       "But our rovers do have body,eyes,brains,arms and legs to function properly on mars surface.",
+      { voiceId: "steve/006" },
     ),
     steveImage.hide(),
 
     mcImage.char(["jogging", "tired", "jogging-hand"]).show(),
     aliceImage.char(["jogging", "tired", "jogging-hand"]).show(),
-    mc.say("So they were working on mars surface just like human?"),
+    mc.say("So they were working on mars surface just like human?", {
+      voiceId: "mc/female/003",
+    }),
 
     mcImage.hide(),
     aliceImage.hide(),
@@ -140,45 +160,52 @@ const createSteveScene = (playerName: string) => {
     steveImage.show(),
     steve.say(
       "Yes,They have brains, which are basically computers to process information.",
+      { voiceId: "steve/007" },
     ),
     steve.say(
       "They have body and Temperature controllers to protect their vital instruments.",
+      { voiceId: "steve/008" },
     ),
     steve.say(
       "Their eyes, which are mainly Cameras and instruments that give the rovers information about their environment to aid in navigation and science investigations.",
+      { voiceId: "steve/009" },
     ),
     steve.say(
       "Their legs or wheels that help them to move place to place for investigations.",
+      { voiceId: "steve/010" },
     ),
     steveImage.hide(),
 
     mcImage.show(),
     aliceImage.show(),
-    mc.say("Interesting!"),
+    mc.say("Interesting!", { voiceId: "mc/female/004" }),
     mcImage.hide(),
     aliceImage.hide(),
 
     steveImage.show(),
     steve.say(
       "Yes, it is.Spirit and Opportunity,these two were identical twins. So their structure is the same.",
+      { voiceId: "steve/011" },
     ),
     steve.say(
       "They had panoramic cameras,navigation cameras,magnets to collect dust particles and so many scientific instruments for proper investigation.",
+      { voiceId: "steve/012" },
     ),
     steveImage.hide(),
 
     mcImage.show(),
     aliceImage.show(),
-    alice.say("They really were well structured."),
+    alice.say("They really were well structured.", { voiceId: "alice/001" }),
     mc.say(
       "Yes,they did a really great job on mars surface to find evidence for further research.",
+      { voiceId: "mc/female/005" },
     ),
     mcImage.hide(),
     aliceImage.hide(),
 
     steveImage.show(),
-    steve.say("Exactly.Those two are legends."),
-    steve.say("Okay! That’s enough for one lap."),
+    steve.say("Exactly.Those two are legends.", { voiceId: "steve/013" }),
+    steve.say("Okay! That’s enough for one lap.", { voiceId: "steve/014" }),
     steveImage.hide(),
 
     steveImage.pos({ xalign: 0.8 }),
@@ -188,23 +215,27 @@ const createSteveScene = (playerName: string) => {
     scene.setBackground(backgroundImages["003"]),
     mcImage.char(["standing", "exhausted", "knee"]).show(),
     aliceImage.char(["standing", "exhausted", "forehead-waist"]).show(),
-    mc.say("Mr.Steve, I’m running out of my battery"),
-    alice.say("I can’t feel my legs"),
+    mc.say("Mr.Steve, I’m running out of my battery", {
+      voiceId: "mc/female/006",
+    }),
+    alice.say("I can’t feel my legs", { voiceId: "alice/002" }),
 
     aliceImage.pos({ xalign: 0.4 }),
 
     steveImage.char(["standing", "laugh", "waist"]).show(),
-    steve.say("Kids these days!"),
-    steve.say("Fine ,enough today."),
+    steve.say("Kids these days!", { voiceId: "steve/015" }),
+    steve.say("Fine ,enough today.", { voiceId: "steve/016" }),
     mcImage.char(["standing", "attentive", "arms-crossed"]),
     steveImage.char(["smile-talk", "waist"], new Dissolve({ duration: 300 })),
     steve.say(
       "Before that if you can answer my questions,I’ll tell you where you can meet my friend Max,who is an aerospace engineer.",
+      { voiceId: "steve/017" },
     ),
     aliceImage.char(["standing", "neutral", "arms-crossed"]),
     steveImage.char(["talking", "index-up"], new Dissolve({ duration: 300 })),
     steve.say(
       "He is really packed in schedule,if you want to know about how these rovers landed on mars surface,You can meet him.",
+      { voiceId: "steve/018" },
     ),
 
     aliceImage.char(
@@ -215,13 +246,13 @@ const createSteveScene = (playerName: string) => {
       ["standing", "smile", "behind-back"],
       new Dissolve({ duration: 300 }),
     ),
-    mc.say("Really?"),
+    mc.say("Really?", { voiceId: "mc/female/007" }),
 
     mcImage.char(
       ["standing", "proud", "fist"],
       new Dissolve({ duration: 300 }),
     ),
-    mc.say("We will try to answer correctly."),
+    mc.say("We will try to answer correctly.", { voiceId: "mc/female/008" }),
 
     scene.jumpTo(quizScene),
   ]);

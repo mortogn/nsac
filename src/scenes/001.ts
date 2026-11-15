@@ -1,4 +1,4 @@
-import { Control, Dissolve, Narrator, Scene } from "narraleaf-react";
+import { Control, Dissolve, Narrator, Scene, Sound } from "narraleaf-react";
 import { getAssetURL } from "../utils/get-asset-url";
 import createSchoolScene from "./002";
 
@@ -23,49 +23,73 @@ const marsImages = [
 ];
 
 const createOpeningScene = (playerName: string) => {
-  const scene = new Scene("opening");
+  const scene = new Scene("opening", {
+    voices: (id) =>
+      Sound.voice({
+        src: getAssetURL(`/voices/scene_001/${id}.mp3`),
+        volume: 0.5,
+      }),
+  });
 
   const schoolScene = createSchoolScene(playerName);
 
   scene.action([
     scene.setBackground(images[0]),
-    Narrator.say("A young person was watching a video late at night."),
+    Narrator.say("A young person was watching a video late at night.", {
+      voiceId: "narrator/001",
+    }),
 
     scene.setBackground(images[2], new Dissolve({ duration: 300 })),
-    Narrator.say("Their usual night took an exciting turn."),
+    Narrator.say("Their usual night took an exciting turn.", {
+      voiceId: "narrator/002",
+    }),
 
     scene.setBackground(images[1]),
-    Narrator.say("“A tale of two rovers” was the title.."),
+    Narrator.say("“A tale of two rovers” was the title..", {
+      voiceId: "narrator/003",
+    }),
 
     scene.setBackground(marsImages[0]),
     Narrator.say(
       "Mars, Earth & Space were known concepts to them, yet they couldn’t think of anything interesting about them.",
+      { voiceId: "narrator/004" },
     ),
     scene.setBackground(marsImages[1]),
-    Narrator.say("It was about to change that night."),
+    Narrator.say("It was about to change that night.", {
+      voiceId: "narrator/005",
+    }),
 
     scene.setBackground(images[2]),
     Narrator.say(
       "With a lot of focus, their eyes were glued to the TV screen.",
+      { voiceId: "narrator/006" },
     ),
 
     scene.setBackground(marsImages[2]),
     Narrator.say(
       "Humans putting equipment millions of miles away from their planet fascinates them.",
+      { voiceId: "narrator/007" },
     ),
 
     scene.setBackground(marsImages[3]),
-    Narrator.say("A rover sent from earth bouncing on Mars surface."),
+    Narrator.say("A rover sent from earth bouncing on Mars surface.", {
+      voiceId: "narrator/008",
+    }),
 
     scene.setBackground(images[4]),
-    Narrator.say("Their eyes sparkle with excitement."),
+    Narrator.say("Their eyes sparkle with excitement.", {
+      voiceId: "narrator/009",
+    }),
 
     scene.setBackground(marsImages[4]),
-    Narrator.say("Even without any deep knowledge about space or rovers."),
+    Narrator.say("Even without any deep knowledge about space or rovers.", {
+      voiceId: "narrator/010",
+    }),
 
     scene.setBackground(marsImages[5]),
     Narrator.say(
       "Human curiosity to look beyond their planets, puts a fire in their heart.",
+      { voiceId: "narrator/011" },
     ),
 
     scene.setBackground(images[5]),

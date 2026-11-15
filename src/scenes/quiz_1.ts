@@ -1,14 +1,21 @@
-import { Control, Dissolve, Menu, Scene } from "narraleaf-react";
+import { Control, Dissolve, Menu, Scene, Sound } from "narraleaf-react";
 import { aliceImage } from "../characters/alice";
 import { getMcCharacter, mcImage } from "../characters/mc";
 import { valerieImage, valerie } from "../characters/valerie";
+import { getAssetURL } from "../utils/get-asset-url";
 
 export const createQuizOneQuestionOneScene = (
   playerName: string,
   bg: string,
   next: Scene,
 ) => {
-  const scene = new Scene("Quiz_1_Question_1");
+  const scene = new Scene("Quiz_1_Question_1", {
+    voices: (id) =>
+      Sound.voice({
+        src: getAssetURL(`/voices/scene_003/${id}.mp3`),
+        volume: 0.5,
+      }),
+  });
 
   const mc = getMcCharacter(playerName);
 
@@ -16,10 +23,14 @@ export const createQuizOneQuestionOneScene = (
 
   const rejectActions = [
     valerieImage.char(["disappointed", "cheek"]),
-    valerie.say("Close, but that's not the one. Try again!"),
+    valerie.say("Close, but that's not the one. Try again!", {
+      voiceId: "valerie/q_incorrect",
+    }),
     mcImage.char(["embarrassed", "behind-head"]),
     aliceImage.char(["embarrassed", "behind-head"]),
-    mc.say("This time I’ll get it right."),
+    mc.say("This time I’ll get it right.", {
+      voiceId: "mc/female/q_incorrect",
+    }),
 
     scene.jumpTo(scene),
   ];
@@ -33,6 +44,9 @@ export const createQuizOneQuestionOneScene = (
 
     valerie.say(
       "What is the nickname of the mineral hematite that opportunity found?",
+      {
+        voiceId: "valerie/q_001",
+      },
     ),
 
     Menu.prompt(
@@ -48,7 +62,9 @@ export const createQuizOneQuestionOneScene = (
             new Dissolve({ duration: 300 }),
           ),
         ]),
-        mc.say("YES! What’s the next question?"),
+        mc.say("YES! What’s the next question?", {
+          voiceId: "mc/female/q_correct",
+        }),
 
         scene.jumpTo(questionTwo),
       ])
@@ -65,16 +81,26 @@ export const createQuizOneQuestionTwo = (
   bg: string,
   next: Scene,
 ) => {
-  const scene = new Scene("Quiz_1_Question_2");
+  const scene = new Scene("Quiz_1_Question_2", {
+    voices: (id) =>
+      Sound.voice({
+        src: getAssetURL(`/voices/scene_003/${id}.mp3`),
+        volume: 0.5,
+      }),
+  });
 
   const mc = getMcCharacter(playerName);
 
   const rejectActions = [
     valerieImage.char(["disappointed", "cheek"]),
-    valerie.say("Close, but that's not the one. Try again!"),
+    valerie.say("Close, but that's not the one. Try again!", {
+      voiceId: "valerie/q_incorrect",
+    }),
     mcImage.char(["embarrassed", "behind-head"]),
     aliceImage.char(["embarrassed", "behind-head"]),
-    mc.say("This time I’ll get it right."),
+    mc.say("This time I’ll get it right.", {
+      voiceId: "mc/female/q_incorrect",
+    }),
 
     scene.jumpTo(scene),
   ];
@@ -86,10 +112,13 @@ export const createQuizOneQuestionTwo = (
     aliceImage.char(["neutral", "arms-crossed"]).show(),
     mcImage.char(["attentive", "arms-crossed"]).show(),
 
-    valerie.say("Who had a broken wheel?"),
+    valerie.say("Who had a broken wheel?", {
+      voiceId: "valerie/q_002",
+    }),
 
     Menu.prompt("Who had a broken wheel?")
-      .choose("Opportunity", [
+      .choose("Opportunity", [...rejectActions])
+      .choose("Spirit", [
         valerieImage.char(["proud", "clap"]).show(),
         valerie.say("Correct! Well done!"),
         Control.all([
@@ -100,8 +129,7 @@ export const createQuizOneQuestionTwo = (
           ),
         ]),
         scene.jumpTo(next),
-      ])
-      .choose("Spirit", [...rejectActions]),
+      ]),
   ]);
 
   return scene;
