@@ -4,6 +4,7 @@ import { alice, aliceImage } from "../characters/alice";
 import { max, maxImage } from "../characters/max";
 import { getAssetURL } from "../utils/get-asset-url";
 import { createQuizThreeQuestionOneScene } from "./quiz_3";
+import createEndingScene from "./007";
 
 const backgroudImages = [
   getAssetURL("/scenes/006/bg_001.webp"),
@@ -26,12 +27,13 @@ const createMaxMuseumScene = (playerName: string) => {
   });
 
   const mc = getMcCharacter(playerName);
-  const quizCompleteScene = new Scene("max_museum_end");
-  quizCompleteScene.action([]);
+
+  const endingScene = createEndingScene(playerName);
+
   const quizScene = createQuizThreeQuestionOneScene(
     playerName,
     backgroudImages[1],
-    quizCompleteScene,
+    endingScene,
   );
 
   scene.action([
