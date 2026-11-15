@@ -8,7 +8,7 @@ import { createStory } from "../scenes/story";
 export type Screen = "title" | "game" | "menu" | "name-select";
 
 const GameShell: React.FC = () => {
-  const [screen, setScreen] = useState<Screen>("name-select");
+  const [screen, setScreen] = useState<Screen>("title");
   const [story, setStory] = useState<Story | null>(null);
 
   const onNameSubmit = (name: string) => {
