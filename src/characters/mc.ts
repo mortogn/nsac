@@ -15,7 +15,7 @@ export const mcImage = new Image({
         "attentive",
         "bored",
         "confused",
-        "embarrased",
+        "embarrassed",
         "excited",
         "exhausted",
         "happy",

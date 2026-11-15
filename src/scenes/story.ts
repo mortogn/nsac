@@ -1,5 +1,6 @@
 import { Scene, Story } from "narraleaf-react";
 import createOpeningScene from "./001";
+import createValerieVisitScene from "./003";
 
 export const createStory = (playerName: string) => {
   const story = new Story("NSAC Visual Novel");
@@ -9,10 +10,11 @@ export const createStory = (playerName: string) => {
   });
 
   const opening = createOpeningScene(playerName);
+  const v = createValerieVisitScene(playerName);
 
   const intro = new Scene("intro");
 
-  intro.action([intro.jumpTo(opening)]);
+  intro.action([intro.jumpTo(v)]);
 
   story.entry(intro);
 

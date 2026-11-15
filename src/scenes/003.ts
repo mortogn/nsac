@@ -1,10 +1,11 @@
-import { Control, Dissolve, FadeIn, Scene } from "narraleaf-react";
+import { Control, Dissolve, FadeIn, Menu, Scene } from "narraleaf-react";
 import { getMcCharacter, mcImage } from "../characters/mc";
 import { getAssetURL } from "../utils/get-asset-url";
 import { alice, aliceImage } from "../characters/alice";
 import { sfx } from "../sounds/sfx";
 import { valerie, valerieImage } from "../characters/valerie";
 import createSteveScene from "./004";
+import { createQuizOneQuestionOneScene } from "./quiz_1";
 
 const backgroundImages = {
   "001": getAssetURL("/scenes/003/bg_001.webp"),
@@ -27,6 +28,11 @@ const createValerieVisitScene = (playerName: string) => {
   const mc = getMcCharacter(String(playerName));
 
   const steveScene = createSteveScene(playerName);
+  const questionOneScene = createQuizOneQuestionOneScene(
+    playerName,
+    backgroundImages["003"],
+    steveScene,
+  );
 
   scene.action([
     scene.setBackground(getAssetURL(images[0])),
@@ -265,7 +271,9 @@ const createValerieVisitScene = (playerName: string) => {
     aliceImage.char(["grin", "fist-up"]).show().pos({ xalign: 0.6 }),
     mc.say("We are ready!"),
 
-    scene.jumpTo(steveScene),
+    aliceImage.pos({ xalign: 0.35 }),
+
+    scene.jumpTo(questionOneScene),
   ]);
 
   return scene;

@@ -2,6 +2,7 @@ import React from "react";
 import { Game, GameProviders } from "narraleaf-react";
 import GameShell from "./_components/game-shell";
 import GameDialog from "./components/game-dialog";
+import CustomMenu from "./components/custom-menu";
 
 const game = new Game({
   aspectRatio: 9 / 16,
@@ -11,6 +12,7 @@ const game = new Game({
   minHeight: 0,
   minWidth: 0,
   dialog: GameDialog,
+  menu: CustomMenu,
 });
 
 const App: React.FC = () => {
