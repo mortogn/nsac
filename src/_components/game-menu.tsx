@@ -21,15 +21,16 @@ const MENU: Array<{ label: string; screen: Screen }> = [
   },
   {
     label: "Gallery",
-    screen: "game",
+    screen: "gallery",
   },
 ];
 
 type GameMenuProps = {
   setScreen: React.Dispatch<React.SetStateAction<Screen>>;
+  onLoadGame: () => void;
 };
 
-const GameMenu: React.FC<GameMenuProps> = ({ setScreen }) => {
+const GameMenu: React.FC<GameMenuProps> = ({ setScreen, onLoadGame }) => {
   return (
     <div className="absolute inset-0 z-50 isolate flex h-dvh w-full flex-col overflow-y-auto bg-[#302925] text-[#fffaf3]">
       <img
@@ -49,7 +50,13 @@ const GameMenu: React.FC<GameMenuProps> = ({ setScreen }) => {
         <nav aria-label="Main menu" className="space-y-3.5">
           {MENU.map((item) => (
             <Button
-              onClick={() => changeScreenTo(setScreen, item.screen)}
+              onClick={() => {
+                if (item.label === "Load Game") {
+                  onLoadGame();
+                } else {
+                  changeScreenTo(setScreen, item.screen);
+                }
+              }}
               key={item.label}
             >
               {item.label}

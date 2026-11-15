@@ -1,8 +1,9 @@
-import { Control, Dissolve, Menu, Scene, Sound } from "narraleaf-react";
+import { Control, Dissolve, Menu, Narrator, Scene, Sound } from "narraleaf-react";
 import { aliceImage } from "../characters/alice";
 import { getMcCharacter, mcImage } from "../characters/mc";
 import { valerieImage, valerie } from "../characters/valerie";
 import { getAssetURL } from "../utils/get-asset-url";
+import { unlockQuizRewards } from "../gallery/gallery";
 
 export const createQuizOneQuestionOneScene = (
   playerName: string,
@@ -132,6 +133,10 @@ export const createQuizOneQuestionTwo = (
             new Dissolve({ duration: 300 }),
           ),
         ]),
+        unlockQuizRewards(1),
+        Narrator.say(
+          "You answered all of Valerie’s questions correctly! You’ve unlocked Valerie’s gift. You can view your reward in the Gallery.",
+        ),
         scene.jumpTo(next),
       ]),
   ]);

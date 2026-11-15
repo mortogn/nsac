@@ -1,8 +1,9 @@
-import { Control, Dissolve, Menu, Scene, Sound } from "narraleaf-react";
+import { Control, Dissolve, Menu, Narrator, Scene, Sound } from "narraleaf-react";
 import { getMcCharacter, mcImage } from "../characters/mc";
 import { max, maxImage } from "../characters/max";
 import { aliceImage } from "../characters/alice";
 import { getAssetURL } from "../utils/get-asset-url";
+import { unlockQuizRewards } from "../gallery/gallery";
 
 export const createQuizThreeQuestionOneScene = (
   playerName: string,
@@ -174,6 +175,10 @@ export const createQuizThreeQuestionThree = (
             new Dissolve({ duration: 300 }),
           ),
         ]),
+        unlockQuizRewards(3),
+        Narrator.say(
+          "You answered all of Max’s questions correctly! You’ve unlocked three images from Max. You can view your rewards in the Gallery.",
+        ),
         scene.jumpTo(next),
       ])
       .choose("Victoria Crater", [...rejectActions]),

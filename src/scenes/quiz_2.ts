@@ -1,8 +1,9 @@
-import { Control, Dissolve, Menu, Scene, Sound } from "narraleaf-react";
+import { Control, Dissolve, Menu, Narrator, Scene, Sound } from "narraleaf-react";
 import { getMcCharacter, mcImage } from "../characters/mc";
 import { steve, steveImage } from "../characters/steve";
 import { aliceImage } from "../characters/alice";
 import { getAssetURL } from "../utils/get-asset-url";
+import { unlockQuizRewards } from "../gallery/gallery";
 
 export const createQuizTwoQuestionOneScene = (
   playerName: string,
@@ -114,6 +115,10 @@ export const createQuizTwoQuestionTwo = (
         steve.say("Correct! Well done!", {
           voiceId: "steve/q_correct",
         }),
+        unlockQuizRewards(2),
+        Narrator.say(
+          "You answered all of Steve’s questions correctly! You’ve unlocked Steve’s gift. You can view your reward in the Gallery.",
+        ),
         scene.jumpTo(next),
       ])
       .choose("To collect water", [...rejectActions])
