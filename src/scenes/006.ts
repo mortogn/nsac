@@ -20,7 +20,7 @@ const createMaxMuseumScene = (playerName: string) => {
   const scene = new Scene("max_museum", {
     voices: (id) =>
       Sound.voice({
-        src: getAssetURL(`/voices/secene_006/${id}.mp3`),
+        src: getAssetURL(`/voices/scene_006/${id}.mp3`),
         volume: 0.5,
       }),
   });

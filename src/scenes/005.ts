@@ -10,7 +10,7 @@ const createMaxPhoneScene = (playerName: string) => {
   const scene = new Scene("max_phone_scene", {
     voices: (id) =>
       Sound.voice({
-        src: getAssetURL(`/voices/secene_005/${id}.mp3`),
+        src: getAssetURL(`/voices/scene_005/${id}.mp3`),
         volume: 0.5,
       }),
   });

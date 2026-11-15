@@ -35,7 +35,9 @@ const createEndingScene = (playerName: string) => {
       "We received gifts from Miss Valerie,Mr.Steve and Mr.Max as well. I’m so happy.",
       { voiceId: "mc/female/003" },
     ),
-    alice.say("Me too! They  were really nice to us.", { voiceId: "alice/004" }),
+    alice.say("Me too! They  were really nice to us.", {
+      voiceId: "alice/004",
+    }),
     mc.say(
       "Honestly, I am really moved after knowing how Opportunity and Spirit dedicated their life for scientific discoveries.",
       { voiceId: "mc/female/004" },
