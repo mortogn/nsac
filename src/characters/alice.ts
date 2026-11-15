@@ -54,6 +54,6 @@ export const aliceImage = new Image({
     xalign: 0.2,
     yalign: 0.3,
   },
-  scaleX: -0.9,
-  scaleY: 0.9,
+  scaleX: -1,
+  scaleY: 1,
 });

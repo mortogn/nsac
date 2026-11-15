@@ -2,7 +2,6 @@ import { Dissolve, Scene } from "narraleaf-react";
 import { getMcCharacter, mcImage } from "../characters/mc";
 import { max, maxImage } from "../characters/max";
 import { getAssetURL } from "../utils/get-asset-url";
-import { aliceImage } from "../characters/alice";
 import createMaxMuseumScene from "./006";
 
 const backgroundImages = [getAssetURL("/scenes/005/bg_001.webp")];
@@ -20,8 +19,8 @@ const createMaxPhoneScene = (playerName: string) => {
     mcImage.char(["listening", "phone"]).show(),
     max.say("Hello,Max speaking."),
 
-    mcImage.char(["talking", "phone"], new Dissolve({ duration: 300 })),
-    maxImage.char(["listening", "phone"], new Dissolve({ duration: 300 })),
+    mcImage.char(["talking", "phone"]),
+    maxImage.char(["listening", "phone"]),
     mc.say(
       `Hello,sir.I’m ${playerName}. Mr.Steve told us that you’ll be at the Space museum this friday.`,
     ),
